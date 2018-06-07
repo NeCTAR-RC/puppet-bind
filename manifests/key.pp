@@ -36,7 +36,6 @@ define bind::key(
   }
 
   concat::fragment {"dnskey.${name}":
-    ensure  => $ensure,
     target  => "${bind::params::config_base_dir}/${bind::params::named_local_name}",
     content => "include \"${bind::params::keys_directory}/${name}.conf\";\n",
     notify  => Exec['reload bind9'],

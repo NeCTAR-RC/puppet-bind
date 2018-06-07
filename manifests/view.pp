@@ -33,7 +33,6 @@ define bind::view(
   }
 
   concat::fragment {"named.local.view.${_name}":
-    ensure  => $ensure,
     target  => "${bind::params::config_base_dir}/${bind::params::named_local_name}",
     content => "include \"${bind::params::views_directory}/${_name}.view\";\n",
     order   => $order,

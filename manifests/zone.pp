@@ -81,7 +81,6 @@ define bind::zone (
   }
 
   concat::fragment {"${_view}.zone.${name}":
-    ensure  => $ensure,
     target  => "${bind::params::views_directory}/${_view}.zones",
     content => "include \"${bind::params::zones_directory}/${name}.conf\";\n",
     notify  => Exec['reload bind9'],
@@ -97,7 +96,6 @@ define bind::zone (
         notify => Exec['reload bind9'],
       }
       concat::fragment {"bind.zones.${name}":
-        ensure  => $ensure,
         target  => "${bind::params::zones_directory}/${name}.conf",
         notify  => Exec['reload bind9'],
         require => Package['bind9'],
@@ -140,7 +138,6 @@ define bind::zone (
             }
 
             concat::fragment {"00.bind.${name}":
-              ensure  => $ensure,
               target  => $conf_file,
               order   => '01',
               content => template('bind/zone-header.erb'),
