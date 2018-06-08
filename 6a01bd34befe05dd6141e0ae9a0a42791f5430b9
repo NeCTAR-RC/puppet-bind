@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbad5eec_042ff696",
+        "filename": "manifests/acl.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2018-06-08T16:06:38Z",
+      "side": 0,
+      "message": "do we need to wrap this in `if $ensure { }`",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 60
+      },
+      "revId": "6a01bd34befe05dd6141e0ae9a0a42791f5430b9",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
