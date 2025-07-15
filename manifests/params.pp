@@ -35,7 +35,7 @@ class bind::params {
         $service_has_status   = true
         #$service_pattern will only be used if $service_has_status is false
         $service_pattern      = undef
-        $service_restart      = '/etc/init.d/bind9 reload'
+        $service_restart      = "/usr/bin/systemctl reload ${service_name}"
         $config_base_dir      = '/etc/bind'
         $named_conf_name      = 'named.conf'
         $named_local_name     = 'named.conf.local'
@@ -70,13 +70,8 @@ class bind::params {
         $bind_user            = 'named'
         $bind_group           = 'named'
         $service_pattern      = undef
-        if versioncmp($facts['os']['release']['major'],'7') < 0 {
-          $service_restart      = "/etc/init.d/${service_name} restart"
-          $service_has_status   = false
-        } else {
-          $service_restart      = "/usr/bin/systemctl reload ${service_name}"
-          $service_has_status   = true
-        }
+        $service_restart      = "/usr/bin/systemctl reload ${service_name}"
+        $service_has_status   = true
         $config_base_dir      = '/etc'
         $named_conf_name      = 'named.conf'
         $zones_directory      = '/etc/named/zones'
